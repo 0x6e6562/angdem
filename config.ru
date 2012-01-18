@@ -13,16 +13,16 @@ use Rack::Session::Cookie,  :key => 'rack.session',
                             :secret => 'change_me'
 
 # Load in the main router 
-require File.dirname(__FILE__) + "/rhy.rb"
+require File.dirname(__FILE__) + "/angdem.rb"
 
 # Fire up the DB
 DB = Sequel.connect(
   :adapter  => 'mysql2',
   :host     => '127.0.0.1',
   :port     => 3306,
-  :database => 'rhy',
-  :user     => 'rhy_user',
-  :password => 'rhy_user',
+  :database => 'angdem',
+  :user     => 'angdem_user',
+  :password => 'angdem_user',
   :test     => true
 )
 
@@ -57,9 +57,9 @@ end
 
 use Warden::Manager do |manager|
   manager.default_strategies :password
-  manager.failure_app = Rhy
+  manager.failure_app = Angdem
 end
 
 map '/' do
-  run Rhy
+  run Angdem
 end
