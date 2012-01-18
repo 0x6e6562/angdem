@@ -1,0 +1,47 @@
+<html xmlns:ng="http://angularjs.org" ng:app="angdem">
+
+<script src="js/lib/angular-0.10.6.js"></script>
+
+
+<script src="js/services/angdem.js"></script>
+
+
+<script src="js/controllers/application.js"></script>
+<script src="js/controllers/login.js"></script>
+<script src="js/controllers/home.js"></script>
+<script src="js/controllers/signup.js"></script>
+<script src="js/controllers/activate.js"></script>
+
+<link rel="stylesheet/less" type="text/css" href="less/styling.less"/>
+<script src="js/lib/less-1.1.5.min.js"></script>
+
+
+<body>
+  <div ng:controller="ApplicationController">
+
+    <div id="top-navigation-link-left">
+      <a href="#/">Home</a>
+    </div>
+    
+    <div id="top-navigation-link-right">
+      
+      <div ng:show="authenticated()">
+        {{username()}}
+        <a ng:click="logout()">Logout</a>      
+      </div>
+    
+      <div ng:hide="authenticated()">  
+        <a href="#/login">Login</a>
+        <a href="#/signup">Signup</a>
+      </div>
+    
+    </div>
+    
+    <div id="main-content">
+      <ng:view/>
+    </div>
+
+  </div>
+
+</body>
+</html>

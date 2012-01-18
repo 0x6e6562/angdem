@@ -1,0 +1,74 @@
+<h2>Sign Up</h2>
+
+<div>
+  
+  <form name="signupForm">
+
+    <div>
+      <label>Username:</label>
+    </div>
+    <div>
+      <input type="text" 
+             name="username"
+             ng:pattern="/^[a-z|A-Z|0-9]+$/" 
+             ng:change="checkUsername()"
+             ng:maxlength="50"
+             ng:model="form.username" size="50" required/>
+      <span class="error" 
+            ng:show="signupForm.$error.username_exists">Username already taken.</span>
+      <span class="error" 
+            ng:show="signupForm.username.$error.PATTERN">Username may only contain alphanumeric characters.</span>
+      <span class="error" 
+            ng:show="signupForm.username.$error.MAXLENGTH">Username may only contain 50 characters.</span>
+    </div>
+    <div>
+      
+    </div>
+    <div>
+      <label>Password:</label>
+    <div>
+    <div>
+      <input type="password" 
+             name="password"
+             ng:change="confirmPassword()"
+             ng:minlength="8"
+             ng:maxlength="50"
+             ng:model="form.password" size="50" required/>
+      <span class="error" 
+            ng:show="signupForm.password.$error.MINLENGTH">The password must contain at least 8 characters.</span>
+      <span class="error" 
+            ng:show="signupForm.password.$error.MAXLENGTH">The password may only contain 50 characters.</span>
+    </div>
+    <div>
+      <label>Password confirmation:</label>
+    <div>
+    <div>
+      <input type="password" 
+             name="confirm"
+             ng:change="confirmPassword()"
+             ng:model="form.confirm" size="50" required/>
+      <span class="error" 
+            ng:show="signupForm.$error.confirmation">Both passwords must match.</span>
+    </div>
+    
+    <div>
+      <label>Email:</label>
+    </div>
+    <div>
+      <input type="email" 
+             name="email"
+             ng:change="checkEmail()" 
+             ng:model="form.email" size="50" required/>
+      <span class="error" 
+            ng:show="signupForm.$error.email_exists">Email already registered.</span>
+    </div>
+    
+    <button ng:click="signup()" ng:disabled="{{signupForm.$invalid}}">Create new account</button>
+    
+    <div>
+      <span class="error" ng:show="signupForm.$error.server">Could not connect to server.</span>
+    </div>
+    
+  </form>
+ 
+</div>
