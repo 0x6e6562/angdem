@@ -14,4 +14,4 @@ The driver I'm currently using seems to fall back on a system library on OSX. To
   
 # Licensing
 
-This is just a demo, so realistically speaking, putting a license on this is a bit irrelevant. However, for the avoidance of doubt, this code is published this under the Apache 2 license.
+This is just a demo, so realistically speaking, putting a license on this is a bit irrelevant. However, for the avoidance of doubt, this code is published under the Apache 2 license.
