@@ -37,6 +37,15 @@ class Angdem < Sinatra::Base
     (!unused).to_s
   end
   
+  get '/activate/:code' do
+    begin
+      Activation[params[:code]].delete
+      status 204
+    rescue
+      status 404
+    end
+  end
+  
   post '/signup/:username/:email/:password' do
     timestamp = DateTime.now
     user = User.create(id:           params[:username], 

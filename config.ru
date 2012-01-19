@@ -29,12 +29,6 @@ DB = Sequel.connect(
 # load DB models
 Dir['models/*.rb'].each {|file| require "./#{file}"}
 
-# User.create(id: 'abc', 
-#             password: 'secret',
-#             email: 'foo@bar.com', 
-#             member_since: DateTime.now)
-            #activation_key: SecureRandom.hex(32))
-
 Warden::Manager.serialize_into_session{|user| user.id }
 Warden::Manager.serialize_from_session{|id| User.get(id) }
 
